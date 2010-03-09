@@ -1,0 +1,38 @@
+rc2ui (this software) is a tool that converts Windows RC file to Qt UI file.
+
+
+I got this three files
+- main.cpp
+- rc2ui.cpp
+- rc2ui.h
+from
+http://get.qt.nokia.com/qt/source/qt-x11-2.3.2.tar.gz at /tools/designer/integration/rc2ui/
+and I rewrite it for Qt4.
+
+
+Because of "where I got the files" this software will be GPL.
+See LICENSE.GPL file for details.
+
+
+You can build rc2ui by
+1. install Qt4, Qt4 Designer and Qt3Support 
+2. "./build.sh"
+
+
+For example you can use my_form.rc like
+
+./rc2ui my_form.rc
+uic3 output_from_rc2ui.ui > my_form.h
+uic3 -impl my_form.h output_from_rc2ui.ui > my_form.cpp
+
+or maybe you can convert it to Qt4 ui file format.
+
+./rc2ui my_form.rc
+uic3 -convert output_from_rc2ui.ui > my_form4.ui
+uic-qt4 my_form4.ui > my_form4.h
+uic-qt4 -impl my_form4.h my_form4.ui > my_form4.cpp
+
+See http://doc.trolltech.com/4.5/porting4-designer.html for details.
+
+
+For reports contact me at takechi101010@gmail.com or http://twitter.com/take_cheeze .
